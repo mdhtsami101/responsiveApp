@@ -4,6 +4,7 @@ import 'package:responsiveapp/utils/app_images.dart';
 import 'package:responsiveapp/widgets/all_expensess_header.dart';
 import 'package:responsiveapp/widgets/all_expensess_item.dart';
 import 'package:responsiveapp/widgets/all_expensess_item_list_view.dart';
+import 'package:responsiveapp/widgets/costom_background_container.dart';
 
 class AllExpenses extends StatelessWidget {
   const AllExpenses({super.key});
@@ -20,29 +21,6 @@ class AllExpenses extends StatelessWidget {
           AllExpensessItemListView(),
         ],
       ),
-    );
-  }
-}
-
-class CustomBackgroundContainer extends StatelessWidget {
-  const CustomBackgroundContainer({
-    super.key,
-    required this.child,
-    this.padding,
-  });
-  final Widget child;
-  final double? padding;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(padding ?? 20),
-      decoration: ShapeDecoration(
-        color: Colors.white,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
-      ),
-      child: child,
     );
   }
 }
