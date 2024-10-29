@@ -1,0 +1,54 @@
+import 'package:flutter/material.dart';
+import 'package:responsiveapp/models/all_expensess_item_model.dart';
+import 'package:responsiveapp/utils/app_images.dart';
+import 'package:responsiveapp/widgets/all_expensess_item.dart';
+
+class AllExpensessItemListView extends StatelessWidget {
+  const AllExpensessItemListView({super.key});
+  static List<AllExpensessItemModel> items = [
+    AllExpensessItemModel(
+        data: 'April 2022',
+        image: Assets.imagesIncome,
+        price: r'$20,129',
+        title: 'Income'),
+    AllExpensessItemModel(
+        data: 'April 2022',
+        image: Assets.imagesBalance,
+        price: r'$20,129',
+        title: 'Balance'),
+    AllExpensessItemModel(
+        data: 'April 2022',
+        image: Assets.imagesExpenses,
+        price: r'$20,129',
+        title: 'Expenses'),
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: items.asMap().entries.map(
+        (e) {
+          int index = e.key;
+          var item = e.value;
+          if (index == 1) {
+            return Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                child: AllExpensessItem(allExpensessItemModel: item),
+              ),
+            );
+          } else {
+            return Expanded(
+                child: AllExpensessItem(allExpensessItemModel: item));
+          }
+        },
+      ).toList(),
+      // children: items
+      //     .map(
+      //       (e) => Expanded(
+      //         child: AllExpensessItem(allExpensessItemModel: e),
+      //       ),
+      //     )
+      //     .toList(),
+    );
+  }
+}
