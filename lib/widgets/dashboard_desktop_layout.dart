@@ -7,6 +7,7 @@ import 'package:responsiveapp/widgets/my_card.dart';
 import 'package:responsiveapp/widgets/my_card_page_view.dart';
 import 'package:responsiveapp/widgets/my_cards_section.dart';
 import 'package:responsiveapp/widgets/quick_invoice.dart';
+import 'package:responsiveapp/widgets/transction_history.dart';
 
 class DashboardDesktopLayout extends StatelessWidget {
   const DashboardDesktopLayout({super.key});
@@ -26,7 +27,7 @@ class DashboardDesktopLayout extends StatelessWidget {
         SizedBox(
           width: 24,
         ),
-        Expanded(child: MyCardsSection()),
+        Expanded(child: TransactionHistory()),
       ],
     );
   }
