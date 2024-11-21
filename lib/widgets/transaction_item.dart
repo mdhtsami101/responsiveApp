@@ -20,7 +20,9 @@ class TransactionItem extends StatelessWidget {
         ),
         subtitle: Text(
           transactionModel.data,
-          style: AppStyles.styleRegular16,
+          style: AppStyles.styleRegular16.copyWith(
+            color: const Color(0XFFAAAAAA),
+          ),
         ),
         trailing: Text(
           transactionModel.amount,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsiveapp/utils/app_styles.dart';
+import 'package:responsiveapp/widgets/transaction_history_list_view.dart';
 
 class TransactionHistory extends StatelessWidget {
   const TransactionHistory({super.key});
@@ -17,6 +18,10 @@ class TransactionHistory extends StatelessWidget {
           '13 April 2022',
           style: AppStyles.styleRegular14,
         ),
+        SizedBox(
+          height: 16,
+        ),
+        const TransactionHistoryListView(),
       ],
     );
   }
