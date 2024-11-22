@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:responsiveapp/widgets/all_expensess.dart';
 import 'package:responsiveapp/widgets/all_expensess_and_quick_invoice_section.dart';
@@ -16,6 +18,7 @@ class DashboardDesktopLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    log(MediaQuery.sizeOf(context).height.toString());
     return const Row(
       children: [
         Expanded(child: CustomDrawer()),
@@ -23,29 +26,43 @@ class DashboardDesktopLayout extends StatelessWidget {
           width: 32,
         ),
         Expanded(
-          flex: 2,
-          child: Padding(
-            padding: EdgeInsets.only(top: 40),
-            child: AllExpensessAndQuickInvoiceSection(),
-          ),
-        ),
-        SizedBox(
-          width: 24,
-        ),
-        Expanded(
-          child: Column(
-            children: [
-              SizedBox(
-                height: 40,
-              ),
-              MyCardsAndTransactionHistorySection(),
-              SizedBox(
-                height: 24,
-              ),
-              Expanded(child: IncomeSection()),
+          flex: 3,
+          child: CustomScrollView(
+            slivers: [
+              SliverFillRemaining(
+                hasScrollBody: false,
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: Padding(
+                        padding: EdgeInsets.only(top: 40),
+                        child: AllExpensessAndQuickInvoiceSection(),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 24,
+                    ),
+                    Expanded(
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: 40,
+                          ),
+                          MyCardsAndTransactionHistorySection(),
+                          SizedBox(
+                            height: 24,
+                          ),
+                          Expanded(child: IncomeSection()),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              )
             ],
           ),
-        ),
+        )
       ],
     );
   }
